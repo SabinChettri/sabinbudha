@@ -79,8 +79,31 @@ function FAQRow({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; on
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  // FAQPage structured data — lets Google, Bing, and AI answer engines
+  // (ChatGPT, Perplexity, Gemini, etc.) surface these Q&As directly as
+  // rich results or cited answers, generated straight from FAQS above
+  // so it never drifts out of sync with what's rendered on the page.
+  
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <section id="faq" className="section">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       <span className="eyebrow">06 · FAQ</span>
       <h2 className="section-heading text-balance">
         Frequently Asked Questions

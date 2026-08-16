@@ -1,0 +1,22 @@
+import type { MetadataRoute } from "next";
+
+const SITE_URL = "https://sabinbudha.vercel.app";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const sections = [
+    "",
+    "#about",
+    "#services",
+    "#projects",
+    "#skills",
+    "#faq",
+    "#contact",
+  ];
+
+  return sections.map((path) => ({
+    url: `${SITE_URL}/${path}`,
+    lastModified: new Date(),
+    changeFrequency: path === "" ? "weekly" : "monthly",
+    priority: path === "" ? 1 : 0.7,
+  }));
+}
