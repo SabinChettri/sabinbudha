@@ -1,6 +1,73 @@
-import { ArrowRight, Mail, Github, Linkedin, MessageCircle } from "lucide-react";
+"use client";
+
+import {
+  ArrowRight,
+  Mail,
+  Github,
+  Linkedin,
+  MessageCircle,
+  CheckCircle2,
+  AlertCircle,
+} from "lucide-react";
+import { FormEvent, useState } from "react";
 
 export default function CTA() {
+  const [isSending, setIsSending] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    setIsSending(true);
+    setSuccess(false);
+    setError("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const name = formData.get("name")?.toString().trim();
+    const email = formData.get("email")?.toString().trim();
+    const message = formData.get("message")?.toString().trim();
+
+    if (!name || !email || !message) {
+      setError("Please fill in all fields.");
+      setIsSending(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.error || "Failed to send message.");
+      }
+
+      setSuccess(true);
+      form.reset();
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setIsSending(false);
+    }
+  }
+
   return (
     <section id="contact" className="section">
       <div className="card relative overflow-hidden bg-grid-pattern p-10 md:p-16">
@@ -8,6 +75,7 @@ export default function CTA() {
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-amber-500/10 blur-[100px]" />
 
         <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          {/* LEFT SIDE */}
           <div>
             <span className="eyebrow">05 · Get In Touch</span>
 
@@ -31,7 +99,7 @@ export default function CTA() {
                 <ArrowRight size={16} />
               </a>
 
-              {/* Social / Contact Icons */}
+              {/* SOCIAL / CONTACT ICONS */}
               <div className="flex items-center gap-3">
                 {/* Email */}
                 <a
@@ -57,7 +125,7 @@ export default function CTA() {
 
                 {/* GitHub */}
                 <a
-                  href="https://github.com"
+                  href="https://github.com/SabinChettri"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
@@ -69,7 +137,7 @@ export default function CTA() {
 
                 {/* LinkedIn */}
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/sabinbudhaa/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -81,7 +149,7 @@ export default function CTA() {
               </div>
             </div>
 
-            {/* Direct contact information */}
+            {/* DIRECT CONTACT INFORMATION */}
             <div className="mt-6 flex flex-col gap-2 font-mono text-xs text-fg-muted [html:not(.dark)_&]:text-fg-light-muted">
               <a
                 href="mailto:sabinbudha666@gmail.com"
@@ -101,8 +169,13 @@ export default function CTA() {
             </div>
           </div>
 
-          <form className="flex flex-col gap-4">
+          {/* CONTACT FORM */}
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4"
+          >
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {/* NAME */}
               <div className="flex flex-col gap-1.5">
                 <label
                   htmlFor="name"
@@ -113,12 +186,16 @@ export default function CTA() {
 
                 <input
                   id="name"
+                  name="name"
                   type="text"
                   placeholder="Your name"
-                  className="rounded-lg border border-border bg-ink-900/60 px-4 py-3 text-sm text-fg placeholder:text-fg-faint focus:border-signal-500 [html:not(.dark)_&]:border-border-light [html:not(.dark)_&]:bg-paper [html:not(.dark)_&]:text-fg-light"
+                  required
+                  disabled={isSending}
+                  className="rounded-lg border border-border bg-ink-900/60 px-4 py-3 text-sm text-fg placeholder:text-fg-faint outline-none transition-colors focus:border-signal-500 disabled:cursor-not-allowed disabled:opacity-60 [html:not(.dark)_&]:border-border-light [html:not(.dark)_&]:bg-paper [html:not(.dark)_&]:text-fg-light"
                 />
               </div>
 
+              {/* EMAIL */}
               <div className="flex flex-col gap-1.5">
                 <label
                   htmlFor="email"
@@ -129,13 +206,17 @@ export default function CTA() {
 
                 <input
                   id="email"
+                  name="email"
                   type="email"
                   placeholder="you@company.com"
-                  className="rounded-lg border border-border bg-ink-900/60 px-4 py-3 text-sm text-fg placeholder:text-fg-faint focus:border-signal-500 [html:not(.dark)_&]:border-border-light [html:not(.dark)_&]:bg-paper [html:not(.dark)_&]:text-fg-light"
+                  required
+                  disabled={isSending}
+                  className="rounded-lg border border-border bg-ink-900/60 px-4 py-3 text-sm text-fg placeholder:text-fg-faint outline-none transition-colors focus:border-signal-500 disabled:cursor-not-allowed disabled:opacity-60 [html:not(.dark)_&]:border-border-light [html:not(.dark)_&]:bg-paper [html:not(.dark)_&]:text-fg-light"
                 />
               </div>
             </div>
 
+            {/* MESSAGE */}
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="message"
@@ -146,15 +227,43 @@ export default function CTA() {
 
               <textarea
                 id="message"
+                name="message"
                 rows={4}
                 placeholder="Tell me a little about what you're building..."
-                className="resize-none rounded-lg border border-border bg-ink-900/60 px-4 py-3 text-sm text-fg placeholder:text-fg-faint focus:border-signal-500 [html:not(.dark)_&]:border-border-light [html:not(.dark)_&]:bg-paper [html:not(.dark)_&]:text-fg-light"
+                required
+                disabled={isSending}
+                className="resize-none rounded-lg border border-border bg-ink-900/60 px-4 py-3 text-sm text-fg placeholder:text-fg-faint outline-none transition-colors focus:border-signal-500 disabled:cursor-not-allowed disabled:opacity-60 [html:not(.dark)_&]:border-border-light [html:not(.dark)_&]:bg-paper [html:not(.dark)_&]:text-fg-light"
               />
             </div>
 
-            <button type="submit" className="btn-primary mt-1 w-full">
-              Send Message
-              <ArrowRight size={16} />
+            {/* SUCCESS MESSAGE */}
+            {success && (
+              <div className="flex items-center gap-2 rounded-lg border border-signal-500/30 bg-signal-500/10 px-4 py-3 text-sm text-signal-400">
+                <CheckCircle2 size={17} />
+                <span>
+                  Message sent successfully. I&apos;ll get back to you soon.
+                </span>
+              </div>
+            )}
+
+            {/* ERROR MESSAGE */}
+            {error && (
+              <div className="flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+                <AlertCircle size={17} />
+                <span>{error}</span>
+              </div>
+            )}
+
+            {/* SUBMIT */}
+            <button
+              type="submit"
+              disabled={isSending}
+              className="btn-primary mt-1 w-full disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {isSending ? "Sending..." : success ? "Message Sent" : "Send Message"}
+
+              {!isSending && !success && <ArrowRight size={16} />}
+              {success && <CheckCircle2 size={16} />}
             </button>
           </form>
         </div>
