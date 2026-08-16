@@ -10,14 +10,15 @@ type Project = {
   tags: string[];
   liveUrl: string;
   image: string;
+  imageAlt: string;
   variant: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 };
 
 const PROJECTS: Project[] = [
   {
     name: "Uqonex",
-    category: "Web Application & System",
-    desc: "An automation platform built for scheduling and managing social media workflows with secure authentication, robust database management, and email notification support.",
+    category: "Full-Stack Web Application",
+    desc: "A social media automation platform with secure authentication, content workflows, scheduling, database management, and automated distribution features.",
     tags: [
       "Next.js",
       "Express",
@@ -29,87 +30,116 @@ const PROJECTS: Project[] = [
     ],
     liveUrl: "https://uqonex.vercel.app",
     image: "/uqonex.png",
+    imageAlt:
+      "Uqonex social media automation platform dashboard built with Next.js",
     variant: 1,
   },
+
   {
     name: "Roompau",
-    category: "Full Stack Real Estate Platform",
-    desc: "A property leasing and rental platform featuring a dynamic listing navigation layout, optimized database integration, and high-performance frontend interfaces.",
+    category: "Full-Stack Real Estate Platform",
+    desc: "A real estate web application for property leasing and rentals, combining dynamic property navigation, database integration, authentication, and responsive frontend architecture.",
     tags: ["Next.js", "Node.js", "MongoDB", "TailwindCSS", "JWT"],
     liveUrl: "https://roompau.vercel.app",
     image: "/roompau.png",
+    imageAlt:
+      "Roompau real estate and property rental platform interface",
     variant: 2,
   },
+
   {
     name: "Pichandi Properties",
-    category: "Real Estate Platform",
-    desc: "A full-stack property listing platform with dynamic search filters, admin-managed listings, and a fast, image-heavy frontend optimized for slow connections.",
+    category: "Real Estate Website",
+    desc: "A property listing platform with dynamic search filters, administrator-managed listings, responsive interfaces, and image-heavy pages optimized for practical browsing.",
     tags: ["Next.js", "TailwindCSS", "React.js"],
     liveUrl: "https://pichandiproporties.vercel.app/",
     image: "/pichandi.png",
+    imageAlt:
+      "Pichandi Properties real estate listing website with property cards",
     variant: 3,
   },
+
   {
     name: "ThreeDVisit",
-    category: "Architectural Visualization",
-    desc: "An immersive 3D walkthrough experience for luxury villas, apartments, and commercial buildings from outer exterior views to detailed interior spaces.",
+    category: "3D Web Experience",
+    desc: "An immersive 3D architectural visualization experience for luxury villas, apartments, and commercial buildings, combining exterior views with detailed interior exploration.",
     tags: ["Next.js", "Three.js", "TailwindCSS", "WebGL"],
     liveUrl: "https://threedvisit.vercel.app",
     image: "/threedvisit.png",
+    imageAlt:
+      "ThreeDVisit immersive 3D architectural visualization website",
     variant: 5,
   },
+
   {
     name: "Gorkha",
-    category: "Watch Brand Platform",
-    desc: "An architectural and lifestyle watch showcase platform featuring product walkthrough experiences from outer casings to inner mechanical movements.",
+    category: "3D Product Experience",
+    desc: "A premium watch showcase combining architectural product presentation, interactive 3D experiences, and visual storytelling from the outer casing to internal mechanical components.",
     tags: ["Next.js", "TailwindCSS", "WebGL", "Three.js"],
     liveUrl: "https://gorkhahred.vercel.app",
     image: "/gorkha.png",
+    imageAlt:
+      "Gorkha interactive 3D luxury watch product showcase",
     variant: 6,
   },
+
   {
     name: "Three D Ice Cream",
     category: "3D Product Visualizer",
-    desc: "An interactive 3D product showcase platform featuring floating ice cream cones, customizable flavors, and top-to-bottom exploration.",
+    desc: "An interactive 3D product experience featuring floating ice cream cones, visual customization, flavor presentation, and immersive product exploration.",
     tags: ["Next.js", "Three.js", "TailwindCSS", "WebGL"],
     liveUrl: "https://three-d-icecream-demo.vercel.app",
     image: "/icream3d.png",
+    imageAlt:
+      "Three D Ice Cream interactive 3D product visualization website",
     variant: 7,
   },
+
   {
     name: "Your Furniture",
-    category: "Static E-Commerce & Interior",
-    desc: "An immersive static site for luxury furniture and interior setups with high-resolution image galleries and direct WhatsApp customer inquiries.",
+    category: "Furniture & Interior Website",
+    desc: "A visual furniture and interior website featuring high-resolution product imagery, curated room setups, responsive layouts, and direct WhatsApp customer inquiries.",
     tags: ["TailwindCSS", "JavaScript", "WhatsApp API"],
     liveUrl: "https://yourforniture.vercel.app",
     image: "/forniture.png",
+    imageAlt:
+      "Your Furniture interior and luxury furniture showcase website",
     variant: 8,
   },
+
   {
     name: "Horaa",
-    category: "Apple-Style Minimalist UI",
-    desc: "An Apple-inspired luxury product showcase featuring ultra-clean minimalist design typography and immersive full-screen imagery.",
+    category: "Minimalist Product UI",
+    desc: "An Apple-inspired luxury product showcase focused on minimalist interface design, typography, immersive imagery, and polished visual presentation.",
     tags: ["Next.js", "TailwindCSS", "WebGL", "Three.js"],
     liveUrl: "https://horaa-tau.vercel.app",
     image: "/hora.png",
+    imageAlt:
+      "Horaa minimalist luxury product website inspired by modern Apple-style UI",
     variant: 9,
   },
+
   {
     name: "Jelly Juice",
-    category: "Product Showcase Platform",
-    desc: "A premium product showcase for a botanical fruit concentrate featuring immersive visuals, product storytelling, ingredient highlights, and a refined editorial experience.",
+    category: "Product Showcase Website",
+    desc: "A premium product showcase for a botanical fruit concentrate featuring immersive visuals, product storytelling, ingredient information, and an editorial-style interface.",
     tags: ["Next.js", "TailwindCSS", "JavaScript", "UI/UX"],
     liveUrl: "https://jellyjuice.vercel.app/",
     image: "/juice.png",
+    imageAlt:
+      "Jelly Juice botanical fruit concentrate product showcase website",
     variant: 10,
   },
+
   {
     name: "FitProU Fitness Platform",
-    category: "Health & Fitness App",
-    desc: "A fitness coaching platform with program builders, progress tracking, and a clean, motion-driven interface designed to keep users engaged.",
+    category: "Full-Stack Fitness Application",
+    desc: "A fitness coaching platform with program management, progress tracking, authentication, and a motion-focused interface designed to support user engagement.",
     tags: ["Next.js", "MongoDB", "TailwindCSS", "JWT"],
     liveUrl: "https://fitprou.vercel.app",
     image: "/fitpro.png",
+    imageAlt:
+      "FitProU fitness coaching and progress tracking web application",
     variant: 11,
   },
 ];
@@ -145,7 +175,6 @@ function ProjectCard({ project }: { project: Project }) {
         justify-between
         overflow-hidden
         p-2
-
         transition-all
         duration-500
         hover:-translate-y-1
@@ -158,12 +187,11 @@ function ProjectCard({ project }: { project: Project }) {
         ${glowBg}
       `}
     >
-      {/* IMAGE + CONTENT */}
       <div className="min-w-0">
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded bg-ink-900">
           <img
             src={project.image}
-            alt={project.name}
+            alt={project.imageAlt}
             className="
               block
               h-full
@@ -200,6 +228,7 @@ function ProjectCard({ project }: { project: Project }) {
           <ArrowUpRight
             size={10}
             strokeWidth={1.8}
+            aria-hidden="true"
             className="
               shrink-0
               text-fg-faint
@@ -213,7 +242,7 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
 
         {/* NAME */}
-        <h4
+        <h3
           className="
             mt-0.5
             truncate
@@ -227,7 +256,7 @@ function ProjectCard({ project }: { project: Project }) {
           "
         >
           {project.name}
-        </h4>
+        </h3>
 
         {/* DESCRIPTION */}
         <p
@@ -318,12 +347,6 @@ export default function Projects() {
     let lastTime = performance.now();
     let position = 0;
 
-    /*
-     * Speed in pixels per second.
-     *
-     * Increase this number if you want it faster.
-     * Decrease it if you want a slower luxury-style movement.
-     */
     const SPEED = 45;
 
     const animate = (currentTime: number) => {
@@ -336,11 +359,6 @@ export default function Projects() {
 
       position -= SPEED * delta;
 
-      /*
-       * We continuously move the first card
-       * to the end once it completely leaves
-       * the left side.
-       */
       const firstCard = track.firstElementChild as HTMLElement | null;
 
       if (firstCard) {
@@ -352,7 +370,6 @@ export default function Projects() {
 
         if (Math.abs(position) >= cardWidth + gap) {
           position += cardWidth + gap;
-
           track.appendChild(firstCard);
         }
       }
@@ -372,6 +389,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
+      aria-labelledby="projects-heading"
       className="
         section
         w-full
@@ -380,13 +398,12 @@ export default function Projects() {
         overflow-hidden
       "
     >
-      {/* HEADER */}
-
       <span className="eyebrow">
-        02 · Selected Work
+        03 · Selected Work
       </span>
 
       <h2
+        id="projects-heading"
         className="
           section-heading
           max-w-full
@@ -394,7 +411,7 @@ export default function Projects() {
           text-balance
         "
       >
-        Projects &amp; Systems
+        Web Development Projects &amp; 3D Experiences
       </h2>
 
       <p
@@ -404,14 +421,10 @@ export default function Projects() {
           text-pretty
         "
       >
-        A collection of production-grade web systems focused on
-        performance, scalability, UI engineering, and real business
-        impact.
+        A selection of full-stack applications, business websites, modern
+        interfaces, and interactive 3D web experiences built with a focus on
+        performance, usability, scalability, and real-world business needs.
       </p>
-
-      {/* ========================================================
-          ONE REAL MARQUEE
-          ======================================================== */}
 
       <div
         ref={wrapperRef}
@@ -421,14 +434,12 @@ export default function Projects() {
           w-full
           min-w-0
           overflow-hidden
-
           sm:mt-8
           md:mt-10
         "
         style={{
           WebkitMaskImage:
             "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
-
           maskImage:
             "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
         }}
@@ -441,7 +452,6 @@ export default function Projects() {
             min-w-max
             gap-2.5
             py-1
-
             sm:gap-3
           "
           style={{
@@ -455,7 +465,6 @@ export default function Projects() {
             />
           ))}
 
-          {/* Extra copy keeps the screen filled */}
           {PROJECTS.map((project) => (
             <ProjectCard
               key={`duplicate-${project.name}`}

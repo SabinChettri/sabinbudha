@@ -8,6 +8,7 @@ import {
   Sparkles,
   MessageCircleQuestion,
   ClipboardCheck,
+  Box,
   ArrowRight,
 } from "lucide-react";
 
@@ -22,119 +23,150 @@ const SERVICES: Service[] = [
   {
     icon: Globe,
     title: "Website Development",
-    desc: "Custom business websites built from scratch — fast, responsive, and structured to represent your brand professionally online.",
+    desc: "Custom business websites built from scratch — fast, responsive, accessible, and structured to represent your brand professionally online.",
     points: [
-      "Custom UI design",
-      "Mobile-first & responsive",
-      "SEO-friendly structure",
+      "Custom UI & responsive design",
+      "Mobile-first development",
+      "SEO-friendly architecture",
     ],
   },
+
+  {
+    icon: Box,
+    title: "3D Website & Interactive Experiences",
+    desc: "Immersive 3D websites and interactive web experiences designed to make products, brands, and digital spaces more engaging.",
+    points: [
+      "Interactive 3D interfaces",
+      "Product & visual experiences",
+      "Performance-conscious implementation",
+    ],
+  },
+
   {
     icon: Briefcase,
-    title: "Business Portfolio",
-    desc: "Professional portfolio sites for businesses, agencies, and freelancers that showcase your work and build client trust.",
+    title: "Business Website & Portfolio",
+    desc: "Professional websites for businesses, agencies, and freelancers that showcase services, projects, and expertise while building client trust.",
     points: [
       "Service & project showcase",
-      "Client testimonials section",
+      "Testimonials & trust signals",
       "Contact & lead capture",
     ],
   },
+
   {
     icon: FileCode2,
     title: "Static Website",
-    desc: "Lightweight, fast-loading static sites — ideal for brochure sites, product pages, and content that doesn't need a backend.",
+    desc: "Lightweight, fast-loading websites for businesses, products, landing pages, and content that does not require a complex backend.",
     points: [
-      "Blazing-fast load times",
-      "Low-cost hosting & upkeep",
-      "Clean, minimal codebase",
+      "Fast page delivery",
+      "Low-cost hosting & maintenance",
+      "Clean and maintainable code",
     ],
   },
+
   {
     icon: Layers3,
-    title: "Full-Stack Website",
-    desc: "Complete web applications with a database, authentication, and APIs — built to handle real users and real business logic.",
+    title: "Full-Stack Web Application",
+    desc: "Complete web applications with databases, authentication, APIs, and business logic — built for real users and real-world workflows.",
     points: [
       "Database & API architecture",
-      "Auth & role-based access",
+      "Authentication & authorization",
       "Payment gateway integration",
     ],
   },
+
   {
     icon: Rocket,
-    title: "Landing Page",
-    desc: "High-conversion landing pages designed around a single goal — sign-ups, sales, or bookings — with clear, focused messaging.",
+    title: "Landing Page Development",
+    desc: "High-performance landing pages designed around a clear business objective such as generating leads, bookings, sign-ups, or sales.",
     points: [
-      "Conversion-focused layout",
-      "A/B testable sections",
-      "Fast, animated interactions",
+      "Conversion-focused structure",
+      "Clear messaging & CTAs",
+      "Fast interactive experiences",
     ],
   },
+
   {
     icon: Search,
     title: "SEO",
-    desc: "Search engine optimization that improves how your site is structured, crawled, and ranked — built in, not bolted on.",
+    desc: "Technical and on-page SEO improvements that help search engines understand, crawl, and index your website more effectively.",
     points: [
       "On-page & technical SEO",
-      "Sitemap & schema markup",
-      "Core Web Vitals tuning",
+      "Sitemap & structured data",
+      "Core Web Vitals optimization",
     ],
   },
+
   {
     icon: Sparkles,
-    title: "GEO (Generative Engine Optimization)",
-    desc: "Structuring content so AI assistants like ChatGPT, Claude, and Gemini can understand, cite, and recommend your brand.",
+    title: "GEO — Generative Engine Optimization",
+    desc: "Content and website structures designed to make your brand, services, and expertise easier for AI-powered search and answer systems to understand.",
     points: [
       "AI-readable content structure",
       "Entity & brand clarity",
-      "Citation-worthy formatting",
+      "Structured, citation-ready content",
     ],
   },
+
   {
     icon: MessageCircleQuestion,
-    title: "AEO (Answer Engine Optimization)",
-    desc: "Content and page structure built to directly answer real user questions — for featured snippets, voice search, and AI answers.",
+    title: "AEO — Answer Engine Optimization",
+    desc: "Question-focused content and information architecture designed to provide clear answers for search engines, answer engines, voice search, and AI systems.",
     points: [
-      "FAQ & Q&A structuring",
-      "Featured snippet targeting",
-      "Structured data for answers",
+      "FAQ & question-based content",
+      "Answer-focused page structure",
+      "Relevant structured data",
     ],
   },
+
   {
     icon: ClipboardCheck,
     title: "Website Audit",
-    desc: "A full technical, SEO, and performance audit that identifies exactly what's holding your site back — with a prioritized fix list.",
+    desc: "A practical technical, SEO, accessibility, and performance audit that identifies problems and provides a prioritized list of improvements.",
     points: [
       "Performance & Core Web Vitals",
       "SEO & crawlability review",
-      "Actionable fix report",
+      "Prioritized improvement report",
     ],
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="section">
+    <section
+      id="services"
+      aria-labelledby="services-heading"
+      className="section"
+    >
       <span className="eyebrow">02 · What I Offer</span>
 
-      <h2 className="section-heading text-balance">
-        Services &amp; Offerings
+      <h2
+        id="services-heading"
+        className="section-heading text-balance"
+      >
+        Web Development, 3D Experiences &amp; SEO Services
       </h2>
 
       <p className="section-sub">
-        Whether you need a simple website or a full-stack product, here&apos;s
-        what I build — matched to what your business actually needs.
+        I build modern websites, interactive 3D experiences, and full-stack
+        web applications for businesses in Kathmandu, Nepal, and clients
+        worldwide — with performance, usability, and search visibility built
+        into the process.
       </p>
 
-      <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {SERVICES.map((service) => {
           const Icon = service.icon;
 
           return (
-            <div
+            <li
               key={service.title}
               className="card group flex flex-col p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal-500/40"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-ink-900/60 text-signal-400 transition-colors duration-200 group-hover:border-signal-500/50 [html:not(.dark)_&]:border-border-light [html:not(.dark)_&]:bg-paper">
+              <span
+                aria-hidden="true"
+                className="flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-ink-900/60 text-signal-400 transition-colors duration-200 group-hover:border-signal-500/50 [html:not(.dark)_&]:border-border-light [html:not(.dark)_&]:bg-paper"
+              >
                 <Icon size={20} />
               </span>
 
@@ -152,40 +184,52 @@ export default function Services() {
                     key={point}
                     className="flex items-center gap-2 text-[13px] text-fg-muted [html:not(.dark)_&]:text-fg-light-muted"
                   >
-                    <span className="h-1 w-1 shrink-0 rounded-full bg-signal-500" />
+                    <span
+                      aria-hidden="true"
+                      className="h-1 w-1 shrink-0 rounded-full bg-signal-500"
+                    />
+
                     {point}
                   </li>
                 ))}
               </ul>
-            </div>
+            </li>
           );
         })}
 
         {/* CTA tile */}
-        <a
-          href="#contact"
-          className="card group flex flex-col justify-between overflow-hidden bg-grid-pattern p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal-500/40"
-        >
-          <div>
-            <p className="font-mono text-[11px] uppercase tracking-wider text-fg-faint [html:not(.dark)_&]:text-fg-light-muted">
-              Not sure which fits?
-            </p>
+        <li>
+          <a
+            href="#contact"
+            className="card group flex h-full flex-col justify-between overflow-hidden bg-grid-pattern p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal-500/40"
+          >
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-wider text-fg-faint [html:not(.dark)_&]:text-fg-light-muted">
+                Not sure which fits?
+              </p>
 
-            <h3 className="mt-2 font-display text-lg font-medium text-fg [html:not(.dark)_&]:text-fg-light">
-              Let&apos;s scope your project together.
-            </h3>
-          </div>
+              <h3 className="mt-2 font-display text-lg font-medium text-fg [html:not(.dark)_&]:text-fg-light">
+                Let&apos;s scope your project together.
+              </h3>
 
-          <span className="mt-6 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-signal-400">
-            Start a conversation
+              <p className="mt-3 text-sm leading-relaxed text-fg-muted [html:not(.dark)_&]:text-fg-light-muted">
+                Tell me what you are building, and we can identify the right
+                technical approach for your goals and budget.
+              </p>
+            </div>
 
-            <ArrowRight
-              size={13}
-              className="transition-transform duration-200 group-hover:translate-x-1"
-            />
-          </span>
-        </a>
-      </div>
+            <span className="mt-6 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-signal-400">
+              Start a conversation
+
+              <ArrowRight
+                size={13}
+                aria-hidden="true"
+                className="transition-transform duration-200 group-hover:translate-x-1"
+              />
+            </span>
+          </a>
+        </li>
+      </ul>
     </section>
   );
 }

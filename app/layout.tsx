@@ -23,13 +23,27 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-// Production site URL
+/* -------------------------------------------------------------------------- */
+/* Site configuration                                                         */
+/* -------------------------------------------------------------------------- */
+
 const SITE_URL = "https://sabinbudha.vercel.app";
 const SITE_NAME = "Sabinz — Sabin Budha";
+
 const SITE_TITLE =
-  "Sabin Budha — Best Web Developer in Nepal | Full-Stack Developer & UI Specialist";
+  "Web Development & SEO Company in Kathmandu | Sabinz";
+
 const SITE_DESCRIPTION =
-  "Sabin Budha is a top full-stack web developer in Nepal, building modern web applications, scalable backend architecture, and high-performance digital experiences. Serving clients in Kathmandu and worldwide with clean code and production-grade reliability.";
+  "Sabin Budha is a full-stack web developer in Kathmandu, Nepal, specializing in modern websites, full-stack web applications, high-performance interfaces, and SEO-focused digital experiences.";
+
+const SITE_IMAGE = `${SITE_URL}/og-image.png`;
+
+const EMAIL = "sabinbudha666@gmail.com";
+const PHONE = "+977 9744836218";
+
+/* -------------------------------------------------------------------------- */
+/* Metadata                                                                    */
+/* -------------------------------------------------------------------------- */
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -38,37 +52,25 @@ export const metadata: Metadata = {
     default: SITE_TITLE,
     template: `%s | ${SITE_NAME}`,
   },
+
   description: SITE_DESCRIPTION,
 
-  // Traditional SEO
-  keywords: [
-    "best web developer in Nepal",
-    "top web developer in Nepal",
-    "web development company Nepal",
-    "hire web developer Nepal",
-    "Kathmandu web developer",
-    "website design Nepal",
-    "Sabin Budha",
-    "full-stack developer Nepal",
-    "UI specialist",
-    "Next.js developer Nepal",
-    "React developer Nepal",
-    "web application development",
-    "landing page design",
-    "business portfolio website",
-    "SEO services Nepal",
-    "GEO generative engine optimization",
-    "AEO answer engine optimization",
-    "website audit",
+  authors: [
+    {
+      name: "Sabin Budha",
+      url: SITE_URL,
+    },
   ],
-  authors: [{ name: "Sabin Budha", url: SITE_URL }],
+
   creator: "Sabin Budha",
   publisher: "Sabin Budha",
 
-  // Robots / crawler directives
+  category: "technology",
+
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -78,12 +80,10 @@ export const metadata: Metadata = {
     },
   },
 
-  // Canonical URL
   alternates: {
     canonical: SITE_URL,
   },
 
-  // Open Graph — used by social platforms and many AI/answer engines for previews
   openGraph: {
     type: "website",
     url: SITE_URL,
@@ -91,22 +91,22 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     locale: "en_US",
+
     images: [
       {
-        url: "/og-image.png",
+        url: SITE_IMAGE,
         width: 1200,
         height: 630,
-        alt: SITE_TITLE,
+        alt: "Sabinz — Sabin Budha, Full-Stack Web Developer in Kathmandu, Nepal",
       },
     ],
   },
 
-  // Twitter / X card
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/og-image.png"],
+    images: [SITE_IMAGE],
     creator: "@sabinbudha",
   },
 
@@ -115,59 +115,57 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
-
-  category: "technology",
 };
 
-// Browser chrome / address-bar color on mobile — matches the site's ink/paper tokens
+/* -------------------------------------------------------------------------- */
+/* Viewport                                                                   */
+/* -------------------------------------------------------------------------- */
+
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0A0E13" },
-    { media: "(prefers-color-scheme: light)", color: "#F6F7F9" },
-  ],
   width: "device-width",
   initialScale: 1,
+
+  themeColor: [
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: "#0A0E13",
+    },
+    {
+      media: "(prefers-color-scheme: light)",
+      color: "#F6F7F9",
+    },
+  ],
 };
 
-// JSON-LD structured data — helps AI assistants (GEO) and answer engines (AEO)
-// extract accurate, structured facts about who this is and what's offered.
-const professionalServiceJsonLd = {
+/* -------------------------------------------------------------------------- */
+/* Person structured data                                                     */
+/* -------------------------------------------------------------------------- */
+
+const personJsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Sabinz — Sabin Budha",
+  "@type": "Person",
+
+  name: "Sabin Budha",
+
   url: SITE_URL,
-  image: `${SITE_URL}/og-image.png`,
-  description: SITE_DESCRIPTION,
-  founder: {
-    "@type": "Person",
-    name: "Sabin Budha",
-    jobTitle: "Full-Stack Developer & UI Specialist",
-    url: SITE_URL,
-    image: `${SITE_URL}/og-image.png`,
-    sameAs: [
-      "https://github.com/SabinChettri",
-      "https://www.linkedin.com/in/sabinbudhaa/",
-      "https://www.facebook.com/profile.php?id=61593114297139",
-      "https://www.instagram.com/sabinbudhaa/?hl=en",
-    ],
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "sales",
-    email: "hello@sabinbudha.dev",
-    url: `${SITE_URL}/#contact`,
-    availableLanguage: ["English", "Nepali"],
-  },
+
+  jobTitle: "Full-Stack Web Developer",
+
+  description:
+    "Full-stack web developer based in Kathmandu, Nepal, specializing in modern websites, web applications, high-performance interfaces, and SEO-focused digital experiences.",
+
+  image: SITE_IMAGE,
+
+  email: EMAIL,
+
+  telephone: PHONE,
+
   address: {
     "@type": "PostalAddress",
     addressLocality: "Kathmandu",
     addressCountry: "NP",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 27.7172,
-    longitude: 85.324,
-  },
+
   areaServed: [
     {
       "@type": "Country",
@@ -178,64 +176,155 @@ const professionalServiceJsonLd = {
       name: "Worldwide",
     },
   ],
-  serviceType: [
-    "Website Development",
-    "Business Portfolio Websites",
-    "Static Website Development",
-    "Full-Stack Web Applications",
-    "Landing Page Design",
-    "SEO (Search Engine Optimization)",
-    "GEO (Generative Engine Optimization)",
-    "AEO (Answer Engine Optimization)",
-    "Website Audits",
-  ],
+
   knowsAbout: [
+    "Web Development",
+    "Web Design",
+    "Full-Stack Development",
+    "3d website development",
+    "SEO",
+    "Answer Engine Optimization",
+    "Generative Engine Optimization",
     "JavaScript",
     "TypeScript",
     "React",
     "Next.js",
-    "TailwindCSS",
+    "Tailwind CSS",
     "Node.js",
     "Express.js",
     "MongoDB",
     "PostgreSQL",
     "Prisma",
     "Firebase",
-    "JWT Authentication",
+  ],
+
+  sameAs: [
+    "https://github.com/SabinChettri",
+    "https://www.linkedin.com/in/sabinbudhaa/",
+    "https://www.facebook.com/profile.php?id=61593114297139",
+    "https://www.instagram.com/sabinbudhaa/?hl=en",
   ],
 };
 
-// A separate WebSite entity — distinct from the ProfessionalService/Person above.
-// Gives crawlers and AI engines a clean anchor for "this specific website" as
-// its own thing, which is what most GEO/AEO parsers look for first.
+/* -------------------------------------------------------------------------- */
+/* Professional Service structured data                                       */
+/* -------------------------------------------------------------------------- */
+
+const professionalServiceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+
+  name: SITE_NAME,
+
+  url: SITE_URL,
+
+  image: SITE_IMAGE,
+
+  description: SITE_DESCRIPTION,
+
+  provider: {
+    "@type": "Person",
+    name: "Sabin Budha",
+    url: SITE_URL,
+  },
+
+  areaServed: [
+    {
+      "@type": "Country",
+      name: "Nepal",
+    },
+    {
+      "@type": "Place",
+      name: "Worldwide",
+    },
+  ],
+
+  serviceType: [
+    "Web Development",
+    "Web Design",
+    "Full-Stack Web Development",
+    "Business Website Development",
+    "Landing Page Development",
+    "Ecommerce Website Development",
+    "SEO Services",
+    "Website Audits",
+    "Answer Engine Optimization",
+    "Generative Engine Optimization",
+  ],
+
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "business inquiries",
+    email: EMAIL,
+    telephone: PHONE,
+    url: `${SITE_URL}/#contact`,
+    availableLanguage: ["English", "Nepali"],
+  },
+
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Kathmandu",
+    addressCountry: "NP",
+  },
+};
+
+/* -------------------------------------------------------------------------- */
+/* Website structured data                                                    */
+/* -------------------------------------------------------------------------- */
+
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+
   name: SITE_NAME,
+
   url: SITE_URL,
-  inLanguage: "en-US",
+
   description: SITE_DESCRIPTION,
+
+  inLanguage: "en",
+
+  publisher: {
+    "@type": "Person",
+    name: "Sabin Budha",
+    url: SITE_URL,
+  },
 };
+
+/* -------------------------------------------------------------------------- */
+/* Root Layout                                                                */
+/* -------------------------------------------------------------------------- */
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" className="dark">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
             __html: JSON.stringify(professionalServiceJsonLd),
           }}
         />
+
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd),
+          }}
         />
       </head>
+
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body`}
       >

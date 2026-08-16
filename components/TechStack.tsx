@@ -37,7 +37,7 @@ const CATEGORIES = [
 export default function TechStack() {
   return (
     <section id="skills" className="section">
-      <span className="eyebrow">03 · Tech Toolbox</span>
+      <span className="eyebrow">04 · Tech Toolbox</span>
       <h2 className="section-heading text-balance">
         The Stack Behind The Systems
       </h2>
