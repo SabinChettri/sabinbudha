@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-950 text-fg font-body antialiased;
+    @apply dark:bg-ink-950 dark:text-fg;
+  }
+
+  html:not(.dark) body {
+    @apply bg-paper text-fg-light;
+  }
+
+  ::selection {
+    @apply bg-signal-500/30 text-fg;
+  }
+
+  :focus-visible {
+    outline: 2px solid #4F9CF9;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .section {
+    @apply relative mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-32;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-fg-muted;
+    @apply dark:border-border dark:text-fg-muted;
+  }
+
+  html:not(.dark) .eyebrow {
+    @apply border-border-light text-fg-light-muted;
+  }
+
+  .section-heading {
+    @apply mt-4 font-display text-3xl font-medium tracking-tight text-fg sm:text-4xl md:text-[2.75rem];
+  }
+
+  html:not(.dark) .section-heading {
+    @apply text-fg-light;
+  }
+
+  .section-sub {
+    @apply mt-4 max-w-2xl text-base leading-relaxed text-fg-muted md:text-lg;
+  }
+
+  html:not(.dark) .section-sub {
+    @apply text-fg-light-muted;
+  }
+
+  .card {
+    @apply rounded-2xl border border-border bg-surface;
+  }
+
+  html:not(.dark) .card {
+    @apply border-border-light bg-surface-light shadow-[0_1px_0_0_rgba(10,14,19,0.04)];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-signal-500 px-5 py-3 font-body text-sm font-semibold text-ink-950 transition-all duration-200 hover:bg-signal-400 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-border px-5 py-3 font-body text-sm font-semibold text-fg transition-all duration-200 hover:border-signal-500/50 hover:text-signal-400 active:scale-[0.98];
+  }
+
+  html:not(.dark) .btn-secondary {
+    @apply border-border-light text-fg-light hover:border-signal-500/50 hover:text-signal-600;
+  }
+
+  .tag {
+    @apply rounded-full border border-border px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-fg-muted;
+  }
+
+  html:not(.dark) .tag {
+    @apply border-border-light text-fg-light-muted;
+  }
+}
+
+@layer utilities {
+  /* =========================================
+     GRID BACKGROUND
+     ========================================= */
+
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.045) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.045) 1px,
+        transparent 1px
+      );
+
+    background-size: 44px 44px;
+  }
+
+  html:not(.dark) .bg-grid-pattern {
+    background-image:
+      linear-gradient(
+        to right,
+        rgba(10, 14, 19, 0.055) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(10, 14, 19, 0.055) 1px,
+        transparent 1px
+      );
+
+    background-size: 44px 44px;
+  }
+
+  /* =========================================
+     TEXT BALANCE
+     ========================================= */
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* =========================================
+     GENERAL MARQUEE EDGE FADE
+     ========================================= */
+
+  .mask-fade {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+  }
+
+  /* =========================================
+     MOBILE MARQUEE EDGE FADE
+     ========================================= */
+
+  @media (max-width: 640px) {
+    .mask-fade {
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 4%,
+        black 96%,
+        transparent 100%
+      );
+
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 4%,
+        black 96%,
+        transparent 100%
+      );
+    }
+  }
+}
