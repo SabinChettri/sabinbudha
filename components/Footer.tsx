@@ -5,6 +5,43 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
+function Logo() {
+  return (
+    <a
+      href="#home"
+      className="relative inline-flex flex-col items-start font-display text-xl font-semibold leading-none tracking-tight text-fg [html:not(.dark)_&]:text-fg-light"
+    >
+      <span className="relative inline-block">
+        Sabinz
+
+        {/* Amazon-style curved arrow */}
+        <svg
+          className="pointer-events-none absolute left-[15%] top-full mt-1 w-[80%] text-signal-500"
+          viewBox="0 0 100 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M2 4 Q50 24 94 7"
+            stroke="currentColor"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+
+          <path
+            d="M85 1 L97 7 L88 15"
+            stroke="currentColor"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </span>
+    </a>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="border-t border-border [html:not(.dark)_&]:border-border-light">
@@ -12,15 +49,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:items-start">
           {/* Brand */}
           <div>
-            <a
-              href="#home"
-              className="font-display text-xl font-semibold tracking-tight text-fg [html:not(.dark)_&]:text-fg-light"
-            >
-              Sabin<span className="text-signal-500">.</span>
-            </a>
+            <Logo />
 
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-fg-muted [html:not(.dark)_&]:text-fg-light-muted">
-              Full-Stack Software Developer specializing in modern web
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-fg-muted [html:not(.dark)_&]:text-fg-light-muted">
+              Full-Stack web Developer specializing in modern web
               applications — from high-performance interfaces to scalable
               backend systems.
             </p>
@@ -67,11 +99,13 @@ export default function Footer() {
             >
               WhatsApp: +977 9744836218
             </a>
-              <p className="mt-2 text-sm text-fg-muted [html:not(.dark)_&]:text-fg-light-muted">
-              PAN : 148550890
-            </p>
+
             <p className="mt-2 text-sm text-fg-muted [html:not(.dark)_&]:text-fg-light-muted">
-              samakhusi , Kathmandu, Nepal
+              TAX / PAN : 148550890
+            </p>
+
+            <p className="mt-2 text-sm text-fg-muted [html:not(.dark)_&]:text-fg-light-muted">
+              samakhusi, Kathmandu, Nepal
             </p>
           </div>
         </div>
@@ -82,9 +116,14 @@ export default function Footer() {
             © 2026 Sabin Budha. All Rights Reserved.
           </p>
 
-          <p className="font-mono text-xs text-fg-faint [html:not(.dark)_&]:text-fg-light-muted">
-            Built with Next.js &amp; TailwindCSS
-          </p>
+          <div className="flex items-center gap-4">
+            <a
+              href="/legal"
+              className="font-mono text-xs text-fg-faint transition-colors hover:text-fg [html:not(.dark)_&]:text-fg-light-muted [html:not(.dark)_&]:hover:text-fg-light"
+            >
+              Privacy &amp; Terms
+            </a>
+          </div>
         </div>
       </div>
     </footer>
