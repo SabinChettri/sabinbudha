@@ -59,7 +59,7 @@ const PROJECTS: Project[] = [
     variant: 5,
   },
   {
-    name: "Gorkha Hred",
+    name: "Gorkha",
     category: "Watch Brand Platform",
     desc: "An architectural and lifestyle watch showcase platform featuring product walkthrough experiences from outer casings to inner mechanical movements.",
     tags: ["Next.js", "TailwindCSS", "WebGL", "Three.js"],
