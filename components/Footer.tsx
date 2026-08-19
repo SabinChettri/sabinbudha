@@ -92,12 +92,12 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://wa.me/9779744836218"
+              href="https://wa.me/9779747804714"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 block text-sm text-fg-muted transition-colors hover:text-fg [html:not(.dark)_&]:text-fg-light-muted [html:not(.dark)_&]:hover:text-fg-light"
             >
-              WhatsApp: +977 9744836218
+              WhatsApp: +977 9747804714
             </a>
 
             <p className="mt-2 text-sm text-fg-muted [html:not(.dark)_&]:text-fg-light-muted">

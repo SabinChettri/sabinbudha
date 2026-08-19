@@ -344,12 +344,12 @@ export default function LegalPage() {
                         WhatsApp
                       </span>
                       <a
-                        href="https://wa.me/9779744836218"
+                        href="https://wa.me/9779747804714"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-1 block text-fg-light transition-colors hover:text-signal-500 [html.dark_&]:text-fg"
                       >
-                        +977 9744836218
+                        +977 9747804714
                       </a>
                     </div>
 

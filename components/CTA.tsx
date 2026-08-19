@@ -113,7 +113,7 @@ export default function CTA() {
 
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/9779744836218"
+                  href="https://wa.me/9779747804714"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
@@ -159,12 +159,12 @@ export default function CTA() {
               </a>
 
               <a
-                href="https://wa.me/9779744836218"
+                href="https://wa.me/9779747804714"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors hover:text-signal-400"
               >
-                WhatsApp: +977 9744836218
+                WhatsApp: +977 9747804714
               </a>
             </div>
           </div>

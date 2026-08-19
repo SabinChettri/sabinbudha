@@ -39,7 +39,7 @@ const SITE_DESCRIPTION =
 const SITE_IMAGE = `${SITE_URL}/og-image.png`;
 
 const EMAIL = "sabinbudha666@gmail.com";
-const PHONE = "+977 9744836218";
+const PHONE = "+977 9747804714";
 
 /* -------------------------------------------------------------------------- */
 /* Metadata                                                                    */
